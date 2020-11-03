@@ -32,3 +32,9 @@ a{
   color:#666;
   text-decoration: none;
 }
+/* 分割线 */
+.split-line {
+  height: .2rem;
+  width: 100%;
+  background-color: #D2E4E6;
+}

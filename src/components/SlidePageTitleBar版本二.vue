@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap-slide-page-title-bar">
+  <div class="wrap">
     <ul ref="scrollContainer"
       @touchstart.stop="touchStart"
       @touchmove.stop="touchMove"
@@ -8,31 +8,23 @@
       <li
         v-for="(item, index) in titleList"
         :key="index"
-        @click.self="selectEvent(item, index)"
+        @click.self="selected = index"
         :class="{selected: selected === index}"
       >
         {{ item.title }}
       </li>
     </ul>
     <div>
-      <slot></slot>
+      123123
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    titleList: {
-      type: Array,
-      default: () => {
-        return []
-      }
-    }
-  },
   data () {
     return {
-      selected: 0,
+      selected: '',
       scrollParams: {
         startLocation: 0,
         moveDistance: 0,
@@ -40,7 +32,20 @@ export default {
         clientWidth: '',
         // // 上一次移动的距离
         lastMoveDistance: 0
-      }
+      },
+      titleList: [
+        { title: '关注' },
+        { title: '推荐' },
+        { title: '热榜' },
+        { title: '后端' },
+        { title: '前端' },
+        { title: 'Android' },
+        { title: 'IOS' },
+        { title: '开发工具' },
+        { title: '开发工具' },
+        { title: '开发工具' },
+        { title: '人工智能' }
+      ]
     }
   },
   methods: {
@@ -73,10 +78,6 @@ export default {
     touchEnd (e) {
       // 缓存上一次移动的距离
       this.scrollParams.lastMoveDistance = this.scrollParams.moveDistance
-    },
-    selectEvent (item, index) {
-      this.selected = index
-      this.$emit('selected', item)
     }
   },
   mounted () {
@@ -90,12 +91,11 @@ export default {
 </script>
 <style lang="scss" scoped>
   .selected {
-    color: #1681E9 !important;
+    color: #1681E9;
     border-bottom: 2px solid #1681E9;
   }
-  .wrap-slide-page-title-bar {
+  .wrap {
     overflow: hidden;
-    background-color: #fff;
     ul {
       padding-right: .5rem;
       overflow: hidden;
@@ -108,7 +108,6 @@ export default {
         text-align: center;
         line-height: .5rem;
         padding-bottom: .55rem;
-        color: #BECACC;
       }
     }
   }
