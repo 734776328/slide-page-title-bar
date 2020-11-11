@@ -11,6 +11,7 @@ body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, l
   box-sizing: border-box;
   -webkit-tap-highlight-color:transparent;
   -webkit-font-smoothing: antialiased;
+  font-size: .3rem;
 }
 body {
   font-family: Microsoft YaHei,SimSun;
@@ -37,4 +38,10 @@ a{
   height: .2rem;
   width: 100%;
   background-color: #D2E4E6;
+}
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }

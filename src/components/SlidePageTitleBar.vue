@@ -97,9 +97,11 @@ export default {
     overflow: hidden;
     background-color: #fff;
     ul {
+      width: 1000% !important;
       padding-right: .5rem;
       overflow: hidden;
       padding: .2rem 0;
+      box-shadow: 10px 2px 4px #888888;
       li {
         float: left;
         font-size: .3rem;
